@@ -133,7 +133,7 @@ namespace SqlAutoBackup
             }
             startInfo.Arguments += "> " + PathDest;
             Console.WriteLine("Executing backup: " + startInfo.Arguments);
-            startInfo.UseShellExecute = false;
+            startInfo.UseShellExecute = true;
             System.Diagnostics.Process.Start(startInfo);
         }
     }
