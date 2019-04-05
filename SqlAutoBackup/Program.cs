@@ -125,17 +125,20 @@ namespace SqlAutoBackup
 
         async Task ExecuteApplication(string[] args)
         {
-            var startInfo = new ProcessStartInfo(PathgSrc);
-            string arg = "\" -u " + User + " ";
+            /*var startInfo = new ProcessStartInfo(PathgSrc);
+            string arg = " -u " + User + " ";
             for(int i = 0; i < ArgsCount; i++)
             {
                 arg += Args[i] + " ";
             }
-            arg += "> " + PathDest + "\"";
+            arg += "> " + PathDest;
+            arg = "C:\xampp\mysql\bin\mysqldump.exe -u pma assetcopier > c:\backups\assetcopier.sql";
             Console.WriteLine("Executing backup: " + arg);
             startInfo.Arguments = arg;
             startInfo.UseShellExecute = false;
-            Process.Start(startInfo);
+            Process.Start(startInfo);*/
+
+            System.Diagnostics.Process.Start("CMD.exe", @"C:\xampp\mysql\bin\mysqldump.exe -u pma assetcopier > c:\backups\assetcopier.sql");
         }
     }
 }
