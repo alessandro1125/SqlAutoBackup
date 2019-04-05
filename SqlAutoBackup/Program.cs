@@ -37,7 +37,7 @@ namespace SqlAutoBackup
                     Thread.Sleep(2000);
                     Console.Write(".");
                 }
-                Console.Clear();
+                //Console.Clear();
             }
         }
 
@@ -125,16 +125,17 @@ namespace SqlAutoBackup
 
         async Task ExecuteApplication(string[] args)
         {
-            ProcessStartInfo startInfo = new ProcessStartInfo(PathgSrc);
-            startInfo.Arguments = "-u " + User + " ";
+            //ProcessStartInfo startInfo = new ProcessStartInfo(PathgSrc);
+            string arg = "-u " + User + " ";
             for(int i = 0; i < ArgsCount; i++)
             {
-                startInfo.Arguments += Args[i] + " ";
+                arg += Args[i] + " ";
             }
-            startInfo.Arguments += "> " + PathDest;
-            Console.WriteLine("Executing backup: " + startInfo.Arguments);
-            startInfo.UseShellExecute = true;
-            System.Diagnostics.Process.Start(startInfo);
+            arg += "> " + PathDest;
+            Console.WriteLine("Executing backup: " + arg);
+            //startInfo.Arguments = arg;
+            //startInfo.UseShellExecute = false;
+            Process.Start(PathgSrc, arg);
         }
     }
 }
