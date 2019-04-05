@@ -17,18 +17,12 @@ namespace SqlAutoBackup
         private System.Timers.Timer aTimer;
 
         public string Interval;
-        public string PathgSrc;
-        public string PathDest;
-        public string User;
-        public int ArgsCount = 0;
+        public string PathSrc;
 
-        public Program(string interval, string src, string dest, string user, int argsCount)
+        public Program(string interval, string src)
         {
             Interval = interval;
-            PathgSrc = src;
-            PathDest = dest;
-            User = user;
-            ArgsCount = argsCount;
+            PathSrc = src;
             StartTimer();
             while (true)
             {
@@ -37,7 +31,6 @@ namespace SqlAutoBackup
                     Thread.Sleep(2000);
                     Console.Write(".");
                 }
-                //Console.Clear();
             }
         }
 
@@ -72,36 +65,20 @@ namespace SqlAutoBackup
                     reservedIndex4 = i + 1;
                     src = args[i + 1];
                 }
-
-                if (args[i] == "--dest")
-                {
-                    reservedIndex5 = i;
-                    reservedIndex6 = i + 1;
-                    dest = args[i + 1];
-                }
-
-                if (args[i] == "--user")
-                {
-                    reservedIndex7 = i;
-                    reservedIndex8 = i + 1;
-                    user = args[i + 1];
-                }
             }
 
             int argsCount = 0;
             for(int i = 0; i < args.Length; i++)
             {
                 if (i != reservedIndex && i != reservedIndex2 &&
-                    i != reservedIndex3 && i != reservedIndex4 &&
-                    i != reservedIndex5 && i != reservedIndex6 &&
-                    i != reservedIndex7 && i != reservedIndex8)
+                    i != reservedIndex3 && i != reservedIndex4)
                 {
                     Args[argsCount] = args[i];
                     argsCount++;
                 }
             }
 
-            var main = new Program(interval, src, dest, user, argsCount);
+            var main = new Program(interval, src);
 
         }
 
@@ -138,7 +115,15 @@ namespace SqlAutoBackup
             startInfo.UseShellExecute = false;
             Process.Start(startInfo);*/
 
-            System.Diagnostics.Process.Start("CMD.exe", @"C:\xampp\mysql\bin\mysqldump.exe -u pma assetcopier > c:\backups\assetcopier.sql");
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            startInfo.FileName = PathSrc;
+            process.StartInfo = startInfo;
+            process.Start();
+
+
+            Console.Clear();
+            Console.Write("Executing script: " + PathSrc);
         }
     }
 }
