@@ -12,7 +12,7 @@ namespace SqlAutoBackup
     class Program
     {
 
-        public static string[] Args;
+        public static string[] Args = new string[255];
 
         private System.Timers.Timer aTimer;
 
@@ -20,13 +20,15 @@ namespace SqlAutoBackup
         public string PathgSrc;
         public string PathDest;
         public string User;
+        public int ArgsCount = 0;
 
-        public Program(string interval, string src, string dest, string user)
+        public Program(string interval, string src, string dest, string user, int argsCount)
         {
             Interval = interval;
             PathgSrc = src;
             PathDest = dest;
             User = user;
+            ArgsCount = argsCount;
             StartTimer();
             while (true)
             {
@@ -99,7 +101,7 @@ namespace SqlAutoBackup
                 }
             }
 
-            var main = new Program(interval, src, dest, user);
+            var main = new Program(interval, src, dest, user, argsCount);
 
         }
 
@@ -124,7 +126,7 @@ namespace SqlAutoBackup
         {
             ProcessStartInfo startInfo = new ProcessStartInfo(PathgSrc);
             startInfo.Arguments = "-u " + User + " ";
-            for(int i = 0; i < Args.Length; i++)
+            for(int i = 0; i < ArgsCount; i++)
             {
                 startInfo.Arguments += Args[i] + " ";
             }
