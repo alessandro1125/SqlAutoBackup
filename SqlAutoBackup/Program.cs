@@ -126,12 +126,12 @@ namespace SqlAutoBackup
         async Task ExecuteApplication(string[] args)
         {
             var startInfo = new ProcessStartInfo(PathgSrc);
-            string arg = " -u " + User + " ";
+            string arg = "\" -u " + User + " ";
             for(int i = 0; i < ArgsCount; i++)
             {
                 arg += Args[i] + " ";
             }
-            arg += "> " + PathDest;
+            arg += "> " + PathDest + "\"";
             Console.WriteLine("Executing backup: " + arg);
             startInfo.Arguments = arg;
             startInfo.UseShellExecute = false;
