@@ -123,7 +123,7 @@ namespace SqlAutoBackup
 
 
             Console.Clear();
-            Console.Write("Executing script: " + PathSrc);
+            Console.WriteLine("Executing script: " + PathSrc);
         }
     }
 }
