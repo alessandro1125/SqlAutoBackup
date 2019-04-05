@@ -47,7 +47,7 @@ namespace SqlAutoBackup
             string interval = "720"; // Intervallo in minuti
             string src = "";
             string dest = "";
-            string user = "";
+            string user = "Admin";
             int reservedIndex = -1;
             int reservedIndex2 = -1;
             int reservedIndex3 = -1;
@@ -125,8 +125,8 @@ namespace SqlAutoBackup
 
         async Task ExecuteApplication(string[] args)
         {
-            ProcessStartInfo startInfo = new ProcessStartInfo(PathgSrc);
-            string arg = "-u " + User + " ";
+            var startInfo = new ProcessStartInfo(PathgSrc);
+            string arg = " -u " + User + " ";
             for(int i = 0; i < ArgsCount; i++)
             {
                 arg += Args[i] + " ";
