@@ -1,0 +1,7 @@
+E:\Sync\Strumenti Servers\SqlAutoBackup\SqlAutoBackup\SqlAutoBackup\bin\Debug\SqlAutoBackup.exe.config
+E:\Sync\Strumenti Servers\SqlAutoBackup\SqlAutoBackup\SqlAutoBackup\bin\Debug\SqlAutoBackup.exe
+E:\Sync\Strumenti Servers\SqlAutoBackup\SqlAutoBackup\SqlAutoBackup\bin\Debug\SqlAutoBackup.pdb
+E:\Sync\Strumenti Servers\SqlAutoBackup\SqlAutoBackup\SqlAutoBackup\obj\Debug\SqlAutoBackup.csprojAssemblyReference.cache
+E:\Sync\Strumenti Servers\SqlAutoBackup\SqlAutoBackup\SqlAutoBackup\obj\Debug\SqlAutoBackup.csproj.CoreCompileInputs.cache
+E:\Sync\Strumenti Servers\SqlAutoBackup\SqlAutoBackup\SqlAutoBackup\obj\Debug\SqlAutoBackup.exe
+E:\Sync\Strumenti Servers\SqlAutoBackup\SqlAutoBackup\SqlAutoBackup\obj\Debug\SqlAutoBackup.pdb
