@@ -4,3 +4,4 @@ E:\Sync\Strumenti Servers\SqlAutoBackup\SqlAutoBackup\SqlAutoBackup\bin\Release\
 E:\Sync\Strumenti Servers\SqlAutoBackup\SqlAutoBackup\SqlAutoBackup\obj\Release\SqlAutoBackup.csproj.CoreCompileInputs.cache
 E:\Sync\Strumenti Servers\SqlAutoBackup\SqlAutoBackup\SqlAutoBackup\obj\Release\SqlAutoBackup.exe
 E:\Sync\Strumenti Servers\SqlAutoBackup\SqlAutoBackup\SqlAutoBackup\obj\Release\SqlAutoBackup.pdb
+E:\Sync\Strumenti Servers\SqlAutoBackup\SqlAutoBackup\SqlAutoBackup\obj\Release\SqlAutoBackup.csprojAssemblyReference.cache

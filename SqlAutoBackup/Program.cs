@@ -115,6 +115,7 @@ namespace SqlAutoBackup
             aTimer.Elapsed += OnTimedEvent;
             aTimer.AutoReset = true;
             aTimer.Enabled = true;
+            ExecuteApplication(Args);
         }
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
