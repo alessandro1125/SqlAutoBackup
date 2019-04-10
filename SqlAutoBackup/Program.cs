@@ -17,12 +17,10 @@ namespace SqlAutoBackup
         private System.Timers.Timer aTimer;
 
         public string Interval;
-        public string PathSrc;
 
-        public Program(string interval, string src)
+        public Program(string interval)
         {
             Interval = interval;
-            PathSrc = src;
             StartTimer();
             while (true)
             {
@@ -38,7 +36,6 @@ namespace SqlAutoBackup
         {
 
             string interval = "720"; // Intervallo in minuti
-            string src = "";
             string dest = "";
             string user = "Admin";
             int reservedIndex = -1;
@@ -58,15 +55,8 @@ namespace SqlAutoBackup
                     reservedIndex2 = i + 1;
                     interval = args[i + 1];
                 }
-
-                if (args[i] == "--src")
-                {
-                    reservedIndex3 = i;
-                    reservedIndex4 = i + 1;
-                    src = args[i + 1];
-                }
             }
-
+            
             int argsCount = 0;
             for(int i = 0; i < args.Length; i++)
             {
@@ -78,7 +68,7 @@ namespace SqlAutoBackup
                 }
             }
 
-            var main = new Program(interval, src);
+            var main = new Program(interval);
 
         }
 
@@ -115,15 +105,19 @@ namespace SqlAutoBackup
             startInfo.UseShellExecute = false;
             Process.Start(startInfo);*/
 
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-            startInfo.FileName = PathSrc;
-            process.StartInfo = startInfo;
-            process.Start();
+            // Trovo i src
+            foreach(string arg in args)
+            {
+                System.Diagnostics.Process process = new System.Diagnostics.Process();
+                System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+                startInfo.FileName = arg;
+                process.StartInfo = startInfo;
+                process.Start();
 
 
-            Console.Clear();
-            Console.WriteLine("Executing script: " + PathSrc);
+                Console.Clear();
+                Console.WriteLine("Executing script: " + arg);
+            }
         }
     }
 }
